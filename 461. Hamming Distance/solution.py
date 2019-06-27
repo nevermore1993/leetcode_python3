@@ -23,3 +23,15 @@ class Solution:
             x >>= 1
             y >>= 1
         return distance
+
+    
+    
+// 先计算异或，再转换为二进制，判断1的数目，结合以上两种方法    
+class Solution:
+    def hammingDistance(self, x: int, y: int) -> int:
+        a = bin(x^y)[2:]
+        count = 0
+        for i in a:
+            if i == '1':
+                count +=1
+        return count
