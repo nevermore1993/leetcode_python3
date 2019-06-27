@@ -1,4 +1,5 @@
 // 利用前序遍历同时遍历两棵树，遇到新的节点就创建新的节点
+// 必须使用前序遍历，因为前序遍历是先遍历根节点的，而我们创建一棵新的树的时候都是从根节点开始创建的
 class Solution:
     def mergeTrees(self, t1: TreeNode, t2: TreeNode) -> TreeNode:
         def preOrder(t1,t2):
