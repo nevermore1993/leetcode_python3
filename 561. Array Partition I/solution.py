@@ -7,3 +7,14 @@ class Solution:
         for i in range(0,len(nums),2):
             res += nums[i]
         return res
+
+    
+    
+    
+// 更简洁的写法   
+class Solution:
+    def arrayPairSum(self, nums: List[int]) -> int:
+        #use nums[0::2] to get even
+        
+        nums.sort()
+        return sum(nums[0::2])
