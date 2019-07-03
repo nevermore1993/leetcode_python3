@@ -10,4 +10,7 @@ class Solution:
         carry = (a&b)<<1
         return self.getSum(s,carry)
         
-// 还可以使用python的内置sum(a,b)函数
+// 还可以使用python的内置sum(list)函数
+class Solution:
+    def getSum(self, a: int, b: int) -> int:
+        return sum([a,b])
