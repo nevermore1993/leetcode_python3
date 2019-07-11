@@ -29,3 +29,18 @@ class Solution(object):
                 else:
                     dp[i+1] = min(dp[i+1], dp[j] + costs[2])
         return dp[-1]
+
+
+// 这个方法完美解决了我的方法的难点，寻找最后一个不被包含的天数。这里将所有不连续的天数都补齐了，所有可以直接找最后一个不被
+// 包含的天数。
+class Solution:
+    def mincostTickets(self, days: List[int], costs: List[int]) -> int:
+        mem = [0]*366
+        days_set = set(days)
+        for i in range(1, days[-1]+1):
+            if i not in days_set:
+                mem[i] = mem[i-1]
+            else:
+                mem[i] = min(mem[i-1]+costs[0], mem[i-7]+costs[1], mem[i-30]+costs[2])
+                
+        return mem[days[-1]]
