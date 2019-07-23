@@ -21,3 +21,35 @@ class Solution:
                 temp = charDict[key]
         res.append(temp[1] - temp[0] + 1)
         return res
+
+    
+// 首先找出包含第一个字母的最小子串，然后对其中的所有字母遍历，逐渐拓展这个子串，直到无法拓展为止。然后重复这个步骤
+class Solution:
+    def partitionLabels(self, S: str) -> List[int]:
+        res = []
+        
+        maxCutOff = 0
+        count = 0
+        
+        start = 0
+        revS = S[::-1]
+        lastPos = 0
+        
+        while start < len(S):
+            currChar = S[start]
+            lastPos = max(lastPos, len(S) - revS.index(currChar))
+            newLastPos = False
+            
+            # Find max last index of substring
+            subString = S[start:lastPos]
+            charSet = set(subString)
+            for character in charSet:                    
+                if len(S) - revS.index(character) > lastPos:
+                    lastPos = len(S) - revS.index(character)
+                    newLastPos = True
+                    break
+                    
+            if not newLastPos:
+                res.append(len(subString))
+                start = lastPos
+        return res
