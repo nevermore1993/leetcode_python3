@@ -16,3 +16,13 @@ class Solution:
             if i not in setNum:
                 rst.append(i)
         return rst
+
+// 如何创建一个数组，每个位置的值与索引相关    res = list(range(1, len(nums)+1))
+class Solution:
+    def findDisappearedNumbers(self, nums: List[int]) -> List[int]:
+        res = list(range(1, len(nums)+1))
+        
+        for i in nums:
+            res[i-1] = 0
+        
+        return [i for i in res if i]
