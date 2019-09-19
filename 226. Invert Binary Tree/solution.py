@@ -11,6 +11,7 @@ class Solution:
         
 // 这种写法好像会有些问题，如果直接对root.left进行赋值，那么我们在之后对root.right进行赋值时取得就是已经变化过的root.left，也就是原来的
 // root.right，那么结果会有问题。而这里在一句话中进行赋值好像并不会出现问题，是不是在一句话中就是同时进行的？
+// 应该是先完成了右边的函数调用，然后再进行赋值，那么就不会出问题
 class Solution:
     def invertTree(self, root: TreeNode) -> TreeNode:
         if root:
